@@ -1,18 +1,16 @@
 #!/bin/env bash
 
+# Need to have `git` and `singularity`.  At HLRN, run
+# `module load git singularity`.
+
 # get latest MITgcm code from GitHub
-module load git
 git clone https://github.com/MITgcm/MITgcm.git
 cd MITgcm
-
-# load singularity
-module load singularity/3.2.1 
-
-# set env vars needed by the test script
 
 # command to run mitgcm in:
 #
 # specifies:
+# - execute with singularity
 # - image to use: docker://mitgcm/testreport-images:ubuntu-18.04-20180827
 # - host-machine directory to provide to container: provide $PWD as /MITgcm
 # - command to run in container: pass everyting to `bash -c`
